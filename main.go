@@ -7,11 +7,22 @@ import (
 	"text/template"
 )
 
-type FeedItem struct {
-	Title       string
-	Link        string
-	Description string
-	PubDate     string
+type RSS struct {
+	Channel Channel `xml:"channel"`
+}
+
+type Channel struct {
+	Title       string `xml:"title"`
+	Link        string `xml:"link"`
+	Description string `xml:"description"`
+	Items       []Item `xml:"item"`
+}
+
+type Item struct {
+	Title       string `xml:"title"`
+	Link        string `xml:"link"`
+	Description string `xml:"description"`
+	PubDate     string `xml:"pubDate"`
 }
 
 var tmpl = template.Must(template.ParseFiles("templates/index.html"))
