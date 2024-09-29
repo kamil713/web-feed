@@ -11,5 +11,33 @@
 </head>
 <body>
     <h1>RSS Feed Reader</h1>
+
+    <form id="rss-form" hx-get="/fetch-rss" hx-target="#feed-content" hx-trigger="submit">
+        <label for="feed_url">RSS Feed URL:</label>
+        <input type="text" id="feed_url" name="feed_url" required>
+        <button type="submit">Fetch Feed</button>
+    </form>
+
+    <hr>
+
+    <!-- Container for RSS Feed Content -->
+    <div id="feed-content">
+        <p>Enter an RSS feed URL and the contents will appear here.</p>
+    </div>
+
+    <!-- Template for rendering the RSS feed items dynamically -->
+    {{ define "rssItems" }}
+    <ul>
+        {{ range . }}
+        <li>
+            <a href="{{ .Link }}" target="_blank">{{ .Title }}</a><br>
+            <small>{{ .PubDate }}</small><br>
+            <p>{{ .Description }}</p>
+        </li>
+        {{ else }}
+        <p>No items found.</p>
+        {{ end }}
+    </ul>
+    {{ end }}
 </body>
 </html>
