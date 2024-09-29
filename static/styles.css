@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: red;
+}
+
+
+form {
+    margin-bottom: 20px;
+}
+
+#feed-content {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+small {
+    color: #6c757d;
+}
